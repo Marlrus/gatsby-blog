@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<style>
+			code{
+				background-color: rgba(0,0,0,.075);
+				font-weight: bold;
+			}
+			.subtitle{
+				font-size: 1.3rem;
+				font-weight: bold;
+				margin: 0;
+				padding: 5px;
+				margin-top: 5px;
+				background-color: rgba(0,0,0,.075);
+				text-align: center;
+			}
+			h3{
+				font-size: 2rem;
+				font-weight: bold;
+				margin: 0;
+				padding: 5px;
+				margin-top: 10px;
+			}
+			.paragraph{
+				margin: 0.5rem 0 0.5rem;
+			}
+			.tab{
+				margin: 0 1rem;
+			}
+			html{
+				scroll-behavior: smooth;
+			}
+			</style>
+
+		<title>Gatsby</title>
+  	</head>
+  	<body>
+      
+    <div class="container">
+		<h1 class="display-3 text-center">Gatsby<hr></h1>
+		<header>
+			<p class="paragraph">
+				Overall description.
+			</p>
+		</header>
+
+		<h2 id="00" class="subtitle">Index</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Topic</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>
+						<a href="#01">topicName</a>
+					</td>
+					<td>
+						<code>Code or description</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul class="list-group">
+			<li class="list-group-item">
+				<a id="01" href="#00">Index</a>
+				<h2 class="subtitle">Intro to Gatsby</h2>
+				<p class="paragraph">
+					There are a few libraries/starters that handle rendering different. What we've done with React until now has been using CRA, which uses Client Side Rendering. This means that we send a single bundle to the browser, this bundle is then processed by the browser which creates the page as it goes. It dumps the workload of creating the web page to the browser. The second main library is NextJS, which uses React as well, but handles the creation of the pages on the server, this is called server side rendering. This is what we did with EJS. The server creates the page depending on what the user needs, and then sends it to the browser as a html, css, js bundle. Gatsby is the old school way of the web. We write our app in React, then we use Gatsby to create every possible web page/path and put it on the server. When the user calls a page, it is then sent by the server to the browser without the need of any rendering, beacuse the pages are pre-rendered. 
+				</p>
+				<p class="paragraph">
+					<strong>Gatsby Starter</strong>
+					We start a gatsby project by running <code>npx gatsby new project-name</code>, it has a few starters that give us starting templates for different kinds of pages we might want to create. We start by creating a <code>gatsby-blog</code>. The installation is slow and weighs 277MB. Gatsby comes with a few files, we will focus on the onse in the root directory. Gatsby can be used for SSR, however we won't be doing this. We will write node code in our <strong>gatsby-node.js</strong> file. <strong>gatsby-config.js</strong> holds the configuration options for Gatsby. 
+				</p>
+				<p class="paragraph">
+					<strong>Gatsby Config</strong>
+					<br>
+					We see <strong>siteMetadata</strong> which is data that we can pull into our components using graphQL, mainly title, description, and author. <strong>plugins</strong> are additional libraries in Gatsby that let us do plenty of things with different files. Here we would add any plugins we might want to add. There are many plugins for Gatsby that we can see in the DOCS. 
+				</p>
+				<p class="paragraph">
+					<strong>package.json</strong>
+					<br>
+					We can see that Gatsby comes with a bunch of scripts. We want to use <code>yarn develop</code> which will execute gatsby develop. This will build out our Gatsby application and <em>give us two routes</em>. The first one is localhost 8000, the second one is localhost:800/___graphql, which is our GraphQL playground. If we go to 8000 we can see the page that comes built in with the Gatsby starter. 
+				</p>
+			</li>
+		</ul>
+	</div>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>
