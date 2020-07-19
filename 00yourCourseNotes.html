@@ -94,6 +94,52 @@
 					<br>
 					We can see that Gatsby comes with a bunch of scripts. We want to use <code>yarn develop</code> which will execute gatsby develop. This will build out our Gatsby application and <em>give us two routes</em>. The first one is localhost 8000, the second one is localhost:800/___graphql, which is our GraphQL playground. If we go to 8000 we can see the page that comes built in with the Gatsby starter. 
 				</p>
+				<a id="02" href="#00">Index</a>
+				<h2 class="subtitle">Gatsby Pages</h2>
+				<p class="paragraph">
+					We have a src/pages dir with a few js files. If we create a new file here, Gatsby will automatically try to load a new page for you, which it will build based on the title that you give your file. The <strong>index.js</strong> holds our landing 'astronaut' page. It imports React and has a React.FC. It also uses <code>import { Link } from "gatsby"</code> which is the Gatsby version of the React Router Link. We also import 3 components <strong>Layout, Image, SEO</strong>. Layout wraps around HTML elements or Components, provides styling, and provides some data. The Image Component allows us to do Lazy loading with Images and makes images more performant on the web. The SEO component is meant for SEO, you can provide props for title, description, lang, and meta. 
+				</p>
+				<p class="paragraph">
+					We create a new <strong>page-3.tsx</strong> file, and if we navigate to /page-3 we see that it loads. We also get a 404.js page, which Gatsby will use automatically in production if the user navigates to a page that doesn't exist. It is opinionated in how to handle routing and 404s, which is great beacuse we just have to follow along. The structure of Gatsby app will vary from our CRA, because every page we create needs every component we are going to use displaying it. This is why all of our pages are wrapped in Layout, which is a Gatsby Component that comes with the header and footer. 
+				</p>
+				<p class="paragraph">
+					In our Layout component we can see that we use GraphQL. Gatsby created its own GraphQL hook <code>useStaticQuery</code> that allows to extract the value of the query you are making and pluck out the data. In layout we are querting <code>site{ siteMetadata { title } }</code> which is taken from our <strong>gatsby-config.js</strong> file. This allows us to use title in our component and use it in the Header. If we change totle in our config file, we see that it changes in every page. If we need to have access to some data on any part of our app, we can easily add it to <strong>siteMetadata</strong> and access it using GraphQL. 
+				</p>
+				<a id="03" href="#00">Index</a>
+				<h2 class="subtitle">Gatsby GraphQL + Markdown</h2>
+				<p class="paragraph">
+					Gatsby comes with GraphQL as the default query language, which we can access with ___graphql. It comes pre-set with some great features, such as being able to access any file in our project dir. This is done through the plugin: <em>gatsby-source-filesystem</em>. In t=our config file we can set options that allow us to get to different parts of the FS.  
+				</p>
+				<p class="paragraph">
+					<strong>allFile Query</strong>
+					<br>
+					In our GraphQL playgroun we use the <code>allFile</code> query, and if we ctrl+enter, it autocompletes the query. We get edges, node, and id. Edges is the file path that we have set. We get an array of the images we have in the directory. Inside we have a node[] which is the representation of every image that we have here. In our node we have access to plenty of properties in our node, such as absolutePath, relativePath, and many that we can see in the playgorund. This same structure is how we are going to build out our blog. We can now see a representation of our files, however we cannot access the data yet, for that we need to config Gatsby. 
+				</p>
+				<p class="paragraph">
+					<strong>Markdown and our Blog</strong>
+					<br>
+					Our blog will be a node in allFile, which we need to write using Markdown. We will create a folder that holds all of our blog Markdwon files. We create /src/markdown-pages/icecream.md. On the top of the file we have three dashes <code>---</code> which represents the <strong>frontmatter</strong> which represents the data that you can pull off of the md file. With this you can pull out a snippet of the data in the blog post instead of the whole post. It can hold any metadata. Yihua pulls in another .md file that has a <code>&lt;iframe&gt;</code> tag which holds a link to a YouTube video. This is what you get from YT as an embedd link. MD gets compiled to HTML. 
+				</p>
+				<p class="paragraph">
+					<strong>Accessing our md files</strong>
+					<br>
+					In our Gatsby config file, we copy the block of code that has our FS plugin. Here we change the name and path for our new queue, setting name to markdowns, and using markdown-pages in our path. I copied Yihuas md files to my project. Once we do that, we need to restart our server. We must do this if we change any plugin in our config file. Once we do this, we re-send the queue in our playground and we can se that if we run our queue once more we have our markdown files here. 
+				</p>
+				<a id="04" href="#00">Index</a>
+				<h2 class="subtitle">Pulling Data from Nodes</h2>
+				<p class="paragraph">
+					We need to add a new plugin called a <strong>transformer</strong> which will give us the data from our nodes. These are libs that we have to install in our project. We <code>yarn add gatsby-transformer-remark</code> which will give us access to a new plugin object which we can use in our config. We add it in our plugins[] as <code>`gatsby-transformer-remark`</code>. Since we added a plugin we must restart our server.
+				</p>
+				<p class="paragraph">
+					<strong>allMarkdownRemark query</strong>
+					<br>
+					After resetting the server we see that we have access to a new <code>allMarkdownRemark</code> query in our graphql playground. When we run our query for the edges and node, we see that we have 2 files here. Here we can see we have access to our <code>frontmatter</code> which has the vars that we set between ---. We query for <code>frontmatter { date description title } html</code>. We can see that html has our MD converted to HTML. We also have access to <code>excerpt</code> which is a snippet of HTML that we can show in an index or preview. 
+				</p>
+				<p class="paragraph">
+					<strong>Using in a page</strong>
+					<br>
+					
+				</p>
 			</li>
 		</ul>
 	</div>
