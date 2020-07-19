@@ -126,7 +126,7 @@
 					In our Gatsby config file, we copy the block of code that has our FS plugin. Here we change the name and path for our new queue, setting name to markdowns, and using markdown-pages in our path. I copied Yihuas md files to my project. Once we do that, we need to restart our server. We must do this if we change any plugin in our config file. Once we do this, we re-send the queue in our playground and we can se that if we run our queue once more we have our markdown files here. 
 				</p>
 				<a id="04" href="#00">Index</a>
-				<h2 class="subtitle">Pulling Data from Nodes</h2>
+				<h2 class="subtitle">Pulling Data from Markdown Nodes</h2>
 				<p class="paragraph">
 					We need to add a new plugin called a <strong>transformer</strong> which will give us the data from our nodes. These are libs that we have to install in our project. We <code>yarn add gatsby-transformer-remark</code> which will give us access to a new plugin object which we can use in our config. We add it in our plugins[] as <code>`gatsby-transformer-remark`</code>. Since we added a plugin we must restart our server.
 				</p>
@@ -138,6 +138,14 @@
 				<p class="paragraph">
 					<strong>Using in a page</strong>
 					<br>
+					We go to our <strong>index.js</strong> page. We import graphql inside gatsby. Here we <code>const export query = graphql` query { ... }`</code> where we paste the query we used in our playground. Gatsby by default knows that any query that we export with graphql is to be used in the Component that is the default export in our file. This means that we have access to it in our props. We destructure <code>({ data })</code> in our props. Then we remove everything in the component except Layout and SEO, and inside we create a Div with an H1. Then we add <code>totalCount</code> to our query to get the number of posts we have. We then create an H4 with <code>{data.allMarkdownRemark.totalCount}</code>. If we go back to our app now we see that our count is displayed. We restructure our Component to <code>console.log(data)</code> to see what we get from the query, which matches our format.
+				</p>
+				<p class="paragraph">
+					Once we have this we start structuring what we want to display. We want to map over our posts, we do this with <code>{data.allMarkdownRemark.edges.map(({node}) => ( ... ))}</code> which will map over the nodes which are our posts. Inside we will render a div, which uses the <strong>key</strong>, mandatory in JSX as <code>key={node.id}</code>. Inside we have a span that has the title and date from our frontmatter <code>node.frontmatter.title</code> and date. Then we have a p tag with the ecxeprt <code>node.excerpt.</code> Now we can see that we have a preview for our posts in the main page of our App. Now we have access to the data from our markdown files and everything will update automatically. 
+				</p>
+				<a id="04" href="#00">Index</a>
+				<h2 class="subtitle">Individual Blog Page</h2>
+				<p class="paragraph">
 					
 				</p>
 			</li>
