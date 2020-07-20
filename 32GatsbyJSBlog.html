@@ -144,7 +144,59 @@
 					Once we have this we start structuring what we want to display. We want to map over our posts, we do this with <code>{data.allMarkdownRemark.edges.map(({node}) => ( ... ))}</code> which will map over the nodes which are our posts. Inside we will render a div, which uses the <strong>key</strong>, mandatory in JSX as <code>key={node.id}</code>. Inside we have a span that has the title and date from our frontmatter <code>node.frontmatter.title</code> and date. Then we have a p tag with the ecxeprt <code>node.excerpt.</code> Now we can see that we have a preview for our posts in the main page of our App. Now we have access to the data from our markdown files and everything will update automatically. 
 				</p>
 				<a id="04" href="#00">Index</a>
-				<h2 class="subtitle">Individual Blog Page</h2>
+				<h2 class="subtitle">Creating the Slug</h2>
+				<p class="paragraph">
+					We will need to highjack the <strong>build</strong> step in our gatsby blog, we will get the html from our nodes and build pages for each node in our blog. We do this in our <strong>gatsby-node.js</strong> file. Here we write node-esque code, more details in the <a href="https://www.gatsbyjs.org/docs/node-apis/">Gatsby Node API DOCS</a>. Inside we <code>exports.onCreateNode = ({ node }) => { console.log(node.internal.type) }</code>. When we restart our server, we see that we get logs in our console, where we can see two MarkdownRemark logs. 
+				</p>
+				<p class="paragraph">
+					We erase the log, and we change it to <code>if(node.internal.type === `MarkdownRemark`){ ... }</code>, where we will create something called a <strong>slug</strong>. A slug, in gatsby, is the URL that the browser can access from our app to navigate to the page required. We need to dynamically create this slug and attach it to the node as a field so we can access it in the application. We also have access to the <code>actions</code> property in our onCreateNode() Fn from gatsby that has actions we get by default. 
+				</p>
+				<p class="paragraph">
+					We <code>const { createNodeField } = actions</code> to extract this action. Then we will build our slug. We <code>const { createFilePath } = require(`gatsby-source-filesystem`)</code>. Then inside our if condition we <code>const slug = createFilePath({ node })</code> which points to the node that we want to convert into a file path. Gatsby takes the name of the file and transforms it into the route that will be used. Then we need the method to get the node, <code>({ node, actions, getNode })</code>, we then use it in createFilePath(). This allows you pull out the <em>node object representation</em> of a file or edge. The third arg in our object is the optional <code>basePath</code> which allows us to add a base path to the URL. We won't use this. 
+				</p>
+				<p class="paragraph">
+					Then we <code>createNodeField({ ... })</code> where we pass <code>node, name: `slug`, value: slug,</code>, now when we create our nodes in the build process we will end up appending a property named slug with the value of our slug <code>node { ...node, name: slug }</code>. Now we restart our server to apply the changes. In our GraphQL playground we now see that our nodes have a <strong>fields</strong> prop, where we have access to slug. <strong>Node:</strong> any field we add with createNodeField() will be added to this fields property. We can see that the slug has the path based on the name <code>"slug": "/ice-cream/"</code>. Now that we set up our node, we need to set up the page. 
+				</p>
+				<a id="05" href="#00">Index</a>
+				<h2 class="subtitle">Gatsby node createPages() Setup and Template</h2>
+				<p class="paragraph">
+					We will build out the final pages from our site using our node and markdown files, where we will use the slug as well. We will need a new method <code>exports.createPages = ({ graphql, actions }) => { ... }</code> which gives us access to graphql queries in our node file and actions that we can use. We then <code>const {createPage} = actions</code>. Underneath we <code>return graphql(``)</code>, which needs the () because we don't have ES6 support out of the box, but it is the same as what we use in the front end with ES6 <code>graphql``</code>. 
+				</p>
+				<p class="paragraph">
+					We create our query in the GarphQL playground. We then paste it in our query <code>return graphql(` { allMarkdownRemark { edges { node { fields { slug } } } } } `)</code> which will give us the data we need to pass to createPage. Since this query is a promise we use <code>.then(result => { ... }</code> where we <code>result.data.allMarkdownRemark.edges.forEach(({ node }) => { ... })</code>, Here we loop over all the nodes and call <code>createPage({ path: node.fields.slug, component: null })</code> which will create a page for each of our posts using a Component we create. For this we create a src/templates/ directory which will hold the Component we will use in createPage().
+				</p>
+				<p class="paragraph">
+					<strong>Template Component</strong>
+					<br>
+					We create a <strong>blog-post.js</strong> file in our templates for our posts. We import React graphql and Layout. We have this in our templates/ directory because the pages that are application files are in pages/ files that we use to generate pages in the build go in templates/. Here we will have access to MD data from a graphql query that we will build. We make <code>export const query = grapql` query($slug: String!) { ... }`</code> Which is our own query that always gets a string value that we will call $slug. Then we will use it to search <code>markdownRemark(fields: { slug: { eq: $slug } })</code> when the fields.slug is equal to our $slug value. 
+				</p>
+				<p class="paragraph">
+					We test out the query in the GraphQL playground. Where we create the queue and then look for <code>{ id fields { slug } }</code> where we use /ice-cream/ and get the result for the markdown file we are looking for. In our template we will just extract <code>{ html frontmatter { title } }</code>. In our Component code we <code>const post = data.markdownRemark</code>. Then we will create our <code>return ( ... )</code> we wrap everything in a Layout Component, and inside we create a div. Then we set h1 to <code>{post.frontmatter.title}</code> and then we create a div where we will use the html we get from our MD.
+				</p>
+				<p class="paragraph">
+					We will use the React property <code>dangerouslySetInnerHTML={ ... }</code>, this is the preferred Gatsby way of setting this value. It says dangerously set because in React we don't want to use this, because the HTML is dynamically generated. Since Gatsby creates static pages, there is no danger here at all. Inside we <code>{{ __html: post.html }}</code> which will set the html from our graphql query as the html inside the div. 
+				</p>
+				<p class="paragraph">
+					<strong>Using our component in gatsby node</strong>
+					<br>
+					The component prop in our createPage() is expecting a path. We need the path property. We <code>const path = require('path')</code> which comes default in js. Then we <code>component: path.resolve(`./src/templates/blog-post.js`),</code> For us to pass the <strong>slug</strong> value to our front end query we need to pass it with <code>context: { slug: node.fields.slug }</code>. After we complete this we restart our server. Now if we navigate to <code>/ice-cream/</code> we see our blog page was created. When we go to /my-frist-ama/ we see that the youtube video is there <em>awesome</em>. We have our blog set up to dynamically generate our posts and update our index, hooray.
+				</p>
+				<a id="06" href="#00">Index</a>
+				<h2 class="subtitle">Finishing our Blog</h2>
+				<p class="paragraph">
+					We need to start by sorting our posts in the index to display latest first. In our index.js file we use the graphql sort method in our query <code>allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) { ... }</code>. We can do this query in the playground. Basically <code>___</code> three underscores is equal to . in this syntax. Now we want to link to the blog posts from these previews. To do this we add <code>fields { slug }</code> to our query. 
+				</p>
+				<p class="paragraph">
+					Yihua wants to style the blog using styled-components, which we can do using a plugin. We <code>yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-components</code> to use it in gatsby. In our config file we add <code>`gatsby-plugin-styled-components`,</code> In our index.js we <code>import styled from 'styled-components';</code>. 
+				</p>
+				<p class="paragraph">
+					We will create these components in the same file. We <code>const BlogLink = styled(Link)` text-decoration: none;`</code> which will use the Link Component and remove the default style for links. We then wrap the span with the title and date in our BlogLink Component. Then we use the to prop to redirect to our slug which is the path <code>to={node.fields.slug}</code>. 
+				</p>
+				<p class="paragraph">
+					<strong>SideTrack: robots.txt</strong>
+					<br>
+					I ran lighthouse out of curiosity and got an error regarding a <strong>robots.txt</strong> file. I read on it and it is a file that tells web crawlers where they can find info for SEOs. By default I had an invalid robots.txt file. This is important because the benefit of gatsby is SEOs. I proceeded to look at the docs and found <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/">gatsby-plugin-robots-txt</a> which is a plugin that creates a robots.txt file for your Gatsby site. I installed it and it didn't work, I then ran <code>yarn build</code> and found that the error was in the Gatsby config file. The plugin looks for a <code>siteUrl: String</code> prop in <code>siteMetadata</code> which should hold the url to the webpage for the robots.txt file. Once I set it to localhost, build ran well and with yarn develop I got no error running lighthouse. 
+				</p>
 				<p class="paragraph">
 					
 				</p>
