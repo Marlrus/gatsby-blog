@@ -12,6 +12,9 @@ const BlogLink = styled(Link)`
 const BlogTitle = styled.h3`
 	margin-bottom: 20px
 	color: blue;
+	&:hover {
+		color: purple;
+	}
 `;
 
 const IndexPage = ({ data }) => {
@@ -20,8 +23,8 @@ const IndexPage = ({ data }) => {
 		<Layout>
 			<SEO title='Home' />
 			<div>
-				<h1>Julian's Thawgts</h1>
-				<h4>{data.allMarkdownRemark.totalCount}</h4>
+				<h1>Julian's Posts</h1>
+				<h4>Posts: {data.allMarkdownRemark.totalCount}</h4>
 				{data.allMarkdownRemark.edges.map(({ node }) => (
 					<div key={node.id}>
 						<BlogLink to={node.fields.slug}>

@@ -1,8 +1,8 @@
 module.exports = {
 	siteMetadata: {
-		title: `Julian's Blawg`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@gatsbyjs`,
+		title: `Julian's Blog`,
+		description: `Testing Gatsby for a Blog`,
+		author: `@Marlrus`,
 		siteUrl: `http://localhost:8000/`,
 	},
 	plugins: [
@@ -22,7 +22,12 @@ module.exports = {
 				path: `${__dirname}/src/markdown-pages`,
 			},
 		},
-		`gatsby-transformer-remark`,
+		{
+			resolve: `gatsby-transformer-remark`,
+			options: {
+				plugins: [`gatsby-remark-autolink-headers`],
+			},
+		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-sharp`,

@@ -202,6 +202,22 @@
 				<p class="paragraph">
 					Yihua creates a github repo for the Blog, I already have it. Once we have that we go to <a href="https://www.netlify.com/">Netlify</a>. Here we sign up, I used github for the sign up. Here we get continious deployment, we can trigger the builds by pushing to Git or via webhooks. Netlify uses <em>Let's Encrypt</em> for an automatic and free SSL setup that gives us HTTPS. Netlify has a CLI that can access any Netlify feature from the Terminal. 
 				</p>
+				<p class="paragraph">
+					We click the new site from git button. Then we choose Github in the <em>Continous Deployment</em> option. We then authorize it to get our repos. We choose the our gatsby blog repo. Then we just click deploy site and we will get our link to the site. Once it was completed the site was hosted in <a href="https://distracted-agnesi-66c891.netlify.app/">https://distracted-agnesi-66c891.netlify.app/</a> for free. Running lighthouse I got outstanding results: 98 performance, 97 accessibility, 100 best practices, 100 SEO. Fascinating. 
+				</p>
+				<p class="paragraph">
+					<strong>Continous Deployment</strong>
+					<br>
+					Additionally <em>netlify will automatically update our page when we push to our master in github.</em>. If we change something and push to our origin we will see that netlify gets a new item in <strong>Production deploys.</strong> This will be either queued, in progress, or published. Once it is finished we will get our new page with no downtime, unlike what we get in Heroku. 
+				</p>
+				<p class="paragraph">
+					Testing the other pages I get a few errors on the AMA page, and a few best practice mistakes on the Ice cream blog. However performance is stupid fast. I will attempt to fix the mistakes, expecially the title and header order. 
+				</p>
+				<a id="08" href="#00">Index</a>
+				<h2 class="subtitle">Additional Tests</h2>
+				<p class="paragraph">
+					I copied and pasted the blog post I created for Keto usin <a href="https://stackedit.io/">StackEdit</a>. I just added the metadata to it and created a new md file with it. I imported it and it was looking fine but my links in the document where not working. I installed a new plugin <a href="https://www.gatsbyjs.org/packages/gatsby-remark-autolink-headers/">gatsby-remark-autolink-headers</a> which automatically adds the id for the header which automatically makes the links work as they where in StackEdit. I had to remove the first H1 from the md I wrote in StackEdit becasue it was getting doubled. I could have removed the h1 from the template, but we are using title in two places, the title H1 and the SEO component, which is key. Therefore it is better to just remove it from the md file. It is now working flawlessly. 
+				</p>
 			</li>
 		</ul>
 	</div>
