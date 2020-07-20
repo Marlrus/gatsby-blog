@@ -190,15 +190,17 @@
 					Yihua wants to style the blog using styled-components, which we can do using a plugin. We <code>yarn add gatsby-plugin-styled-components styled-components babel-plugin-styled-components</code> to use it in gatsby. In our config file we add <code>`gatsby-plugin-styled-components`,</code> In our index.js we <code>import styled from 'styled-components';</code>. 
 				</p>
 				<p class="paragraph">
-					We will create these components in the same file. We <code>const BlogLink = styled(Link)` text-decoration: none;`</code> which will use the Link Component and remove the default style for links. We then wrap the span with the title and date in our BlogLink Component. Then we use the to prop to redirect to our slug which is the path <code>to={node.fields.slug}</code>. 
+					We will create these components in the same file. We <code>const BlogLink = styled(Link)` text-decoration: none;`</code> which will use the Link Component and remove the default style for links. We then wrap the span with the title and date in our BlogLink Component. Then we use the to prop to redirect to our slug which is the path <code>to={node.fields.slug}</code>. We then create a BlogTitle Component which is a <code>styled.h3``</code> and replace our span with the title with BlogTitle. Now our links are clickable in the Index page. 
 				</p>
 				<p class="paragraph">
 					<strong>SideTrack: robots.txt</strong>
 					<br>
 					I ran lighthouse out of curiosity and got an error regarding a <strong>robots.txt</strong> file. I read on it and it is a file that tells web crawlers where they can find info for SEOs. By default I had an invalid robots.txt file. This is important because the benefit of gatsby is SEOs. I proceeded to look at the docs and found <a href="https://www.gatsbyjs.org/packages/gatsby-plugin-robots-txt/">gatsby-plugin-robots-txt</a> which is a plugin that creates a robots.txt file for your Gatsby site. I installed it and it didn't work, I then ran <code>yarn build</code> and found that the error was in the Gatsby config file. The plugin looks for a <code>siteUrl: String</code> prop in <code>siteMetadata</code> which should hold the url to the webpage for the robots.txt file. Once I set it to localhost, build ran well and with yarn develop I got no error running lighthouse. 
 				</p>
+				<a id="07" href="#00">Index</a>
+				<h2 class="subtitle">Hosting in Netlify</h2>
 				<p class="paragraph">
-					
+					Yihua creates a github repo for the Blog, I already have it. Once we have that we go to <a href="https://www.netlify.com/">Netlify</a>. Here we sign up, I used github for the sign up. Here we get continious deployment, we can trigger the builds by pushing to Git or via webhooks. Netlify uses <em>Let's Encrypt</em> for an automatic and free SSL setup that gives us HTTPS. Netlify has a CLI that can access any Netlify feature from the Terminal. 
 				</p>
 			</li>
 		</ul>

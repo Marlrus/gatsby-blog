@@ -9,6 +9,11 @@ const BlogLink = styled(Link)`
 	text-decoration: none;
 `;
 
+const BlogTitle = styled.h3`
+	margin-bottom: 20px
+	color: blue;
+`;
+
 const IndexPage = ({ data }) => {
 	console.log(data);
 	return (
@@ -20,9 +25,9 @@ const IndexPage = ({ data }) => {
 				{data.allMarkdownRemark.edges.map(({ node }) => (
 					<div key={node.id}>
 						<BlogLink to={node.fields.slug}>
-							<span>
+							<BlogTitle>
 								{node.frontmatter.title} - {node.frontmatter.date}
-							</span>
+							</BlogTitle>
 						</BlogLink>
 						<p>{node.excerpt}</p>
 					</div>
