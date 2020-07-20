@@ -218,6 +218,11 @@
 				<p class="paragraph">
 					I copied and pasted the blog post I created for Keto usin <a href="https://stackedit.io/">StackEdit</a>. I just added the metadata to it and created a new md file with it. I imported it and it was looking fine but my links in the document where not working. I installed a new plugin <a href="https://www.gatsbyjs.org/packages/gatsby-remark-autolink-headers/">gatsby-remark-autolink-headers</a> which automatically adds the id for the header which automatically makes the links work as they where in StackEdit. I had to remove the first H1 from the md I wrote in StackEdit becasue it was getting doubled. I could have removed the h1 from the template, but we are using title in two places, the title H1 and the SEO component, which is key. Therefore it is better to just remove it from the md file. It is now working flawlessly. 
 				</p>
+				<p class="paragraph">
+					<strong>PWA Support</strong>
+					<br>
+					Setting up the PWA capabilities was very easy. I just installed the <code>gatsby-plugin-offline</code> plugin and put it after the manifest plugin. Once that was done, I just altered the <code>options { ... }</code> in the <code>gatsby-plugin-manifest</code> plugin. Once that was done I tested it out with lighthouse and got PWA capabilities. The only flag I got was <strong>Manifest doesn't have a maskable icon</strong>. I just added the <code>icon_options: { purpose: `maskable`, }</code> after icon in the manifest plugin options.
+				</p>
 			</li>
 		</ul>
 	</div>
