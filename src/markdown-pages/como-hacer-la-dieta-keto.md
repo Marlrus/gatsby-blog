@@ -9,6 +9,8 @@ La dieta Keto, **cetogénica** en español, es una dieta baja en carbohidratos e
 -  [Comidas de Reemplazo](#comidas-de-reemplazo)
 -  [Comidas Keto](#comidas-keto)
 
+![Test](../images/fs-icon.png)
+
 ## Comidas para Evitar
 
 Queremos evitar comidas que sean altas en carbohidratos: **azúcar**, **harina**, **fructuosa**, y **almidón**. Iremos por cada uno de estos carbohidratos dando los ejemplos principales para evitar.
@@ -84,13 +86,13 @@ Los endulzantes pueden generar gases o indigestión cuando se consumen en exceso
 -  Naturales: Stevia, Monkfruit (Fruta del monje)
 -  Sintéticos: Eritritol (Erythritol)
 
-**Importante**: Muchos endulzantes los cortan con sucralosa o azucar. Las versiones naturales sin cortar _son generalmente liquidas_. Para los sinteticos, hay que _ver la lista de ingredientes_.
+**Importante**: Muchos endulzantes los cortan con sucralosa o azúcar. Las versiones naturales sin cortar _son generalmente liquidas_. Para los sintéticos, hay que _ver la lista de ingredientes_.
 
 ### Frutas Keto
 
-Como regla general las frutas mas bajas en azúcar son las **bayas** y los **cítricos**. Las principales son: fresas, moras, arándanos, frambuesas, y limon. De estas nos podemos permitir porciones de 100g, en fresas esto serian 5 a 6 fresas grandes, en las otras hay que guiarse por el contenido del envase.
+Como regla general las frutas mas bajas en azúcar son las **bayas** y los **cítricos**. Las principales son: fresas, moras, arándanos, frambuesas, y limón. De estas nos podemos permitir porciones de 100g, en fresas esto serian 5 a 6 fresas grandes, en las otras hay que guiarse por el contenido del envase.
 
--  Fresas, moras, arandanos, frambuesas, y limon.
+-  Fresas, moras, arándanos, frambuesas, y limón.
 
 ### Jugos Keto
 
@@ -116,18 +118,63 @@ Muchas salsas que son bajas en carbohidratos. Las principales son la mayonesa, m
 
 ### Panes, Tortillas, y Acompañamientos
 
-El reto mas difícil de la dieta keto es **dejar el pan**. Se pueden encontrar recetas de pan keto, pero ninguna va a ser igual o cercana a comer pan. Esto es normal, porque \*gran parte de la experiencia de comer pan y harinas es el **efecto psicológico\*** que solo el azúcar y la harina refinada produce [^4].
+El reto mas difícil de la dieta keto es **dejar el pan**. Se pueden encontrar recetas de pan keto, pero ninguna va a ser igual o cercana a comer pan. Esto es normal, porque _gran parte de la experiencia de comer pan y harinas es el **efecto psicológico**_ que solo el azúcar y la harina refinada produce [^4].
 
-El **queso** tiene muchas variedades y preparaciones que pueden reemplazar acompañamientos. Una gran opción es hacer **galletas de queso parmesano**, o prepara **queso asado**.
+El **queso** tiene muchas variedades y preparaciones que pueden reemplazar acompañamientos. Una gran opción es hacer **galletas de queso parmesano**, o preparar **queso asado**.
 
 -  Diferentes preparaciones y tipos de quesos.
 
 ## Comidas Keto
 
-#### Fuentes
+Uno de los puntos mas atractivos de la dieta Keto es poder comer alimentos altos en grasa que en otras dietas se tienden a evitar. Como el cuerpo cambia su fuente principal de energía de azúcar a grasa **las comidas con grasa reemplazan lo que seria el azúcar**. Es muy clave **ser conscientes de el tipo de grasa que estamos comiendo**.
+
+### Carnes Grasas
+
+Hay diferentes cortes de carnes, unos con mas grasa que otros. _Las grasas de las carnes son lo que mas aportan al sabor_, es por esto que cortes bajos en grasa tienen poco sabor y se tienden a acompañar de salsas como es el caso de la pechuga de pollo. **Las carnes moderadas en grasa son las comidas mas importantes en una dieta Keto**, son grasa saludable, fácil de digerir, **son los alimentos que más sacian el apetito**, y tienen un excelente contenido de proteína.
+
+**Carnes Moderadas en Grasa:**
+
+-  **Res:** Ribeye, Lomo Ancho, Chatas, Punta de Anca, Entraña, Pecho, Brisket, Costillas.
+-  **Pollo:** Piernas, Pernil, Muslos, Contra-muslo, Alas.
+-  **Pescado:** Salmón, Trucha.
+-  **Cerdo:** Tocineta, Bondiola, Chuetas, Costillas, Punta de Anca, Lomo, Pierna, Pernil.
+
+### Huevos
+
+**Los huevos son uno de los alimentos mas completos del planeta.** Tienen alto contenido de vitamina B12, B2, y B5 claves para el cuerpo, tienen un perfil de proteína perfectamente balanceado, y Colina alta para nutrir el cerebro [^8]. Es preferible **comerlos completos** ya que _la mayoría de los nutrientes están en la yema_. La ciencia se encuentra debatiendo mucho el impacto de comer colesterol. _La literatura actual no soporta la noción de que el colesterol dietario incrementa el riesgo de enfermedad cardiovascular en individuos saludables_ [^9].
+
+### Quesos y Lácteos
+
+Los quesos son una comida insignia de la dieta Keto. Son altos en grasa y contienen una buena cantidad de proteína. Son un muy buen complemento pero _hay que ser conscientes de su consumo_ porque **son altos en calorías**. Como regla general, **entre mas maduro el queso tiene menos lactosa, y mas proteína**. Los quesos maduros tienden a ser mas duros como el parmesano, los frescos son mas cremosos o aguados como el quesillo o el mozzarella.
+
+Los lácteos como **el yogur y la crema de leche son bajos en lactosa** por como son procesados. **La crema de leche es simplemente la grasa de la leche**, por lo cual no tiene proteína pero es un gran ingrediente. Los **fermentados como el yogur tienen un contenido bueno de proteína y grasas naturales**, hay que asegurarse de que **no tengan azúcar añadida**.
+
+### Grasas para Cocinar
+
+Estas grasas son las que mas tenemos que cuidar. Al estar consumiendo mas grasas **tenemos que evitar dos cosas: la acumulación de grasas sintéticas, y la inflamación**. _Las grasas sintéticas pueden permanecer en nuestro cuerpo por un periodo de varios meses_, atribuyen al síndrome metabólico, y a enfermedad cardiovascular. La OMS en el 2018 lanzó una iniciativa para eliminar las grasas sintéticas a nivel global [^6]. **Eviten las margarinas y cualquier alimento que tenga grasas-trans**
+
+Para evitar la inflamación, **hay que mantener un equilibrio entre grasas de tipo Omega-6 y Omega-3**. Las grasas de tipo Omega-6 son inflamatorias, las Omega-3 son antiinflamatorias. _La mayoría de las grasas que se come en una dieta estándar son del tipo Omega-6, es decir que son inflamatorias_. **En promedio, se consumen 15 veces mas grasas Omega-6 que Omega-3 (15:1)** mientras que **el punto optimo para reducir inflamación es consumir 5 veces mas Omega-6 que Omega-3 o menos (5:1)** [^7].
+
+Afortunadamente es muy sencillo lograr esto. Hay que **eliminar las grasas de origen vegetal que no sean aceite de oliva**. Con este paso nos acercamos mucho mas a la **taza optima de Omega-6 a Omega-3 de 5:1**.
+
+**Cocinen solo con:**
+
+-  Aceite de Oliva
+-  Mantequilla
+-  Ghee
+
+## Conclusión
+
+Ya sabemos que [alimentos debemos evitar](#comidas-para-evitar), [las alternativas principales](#comidas-de-reemplazo), y [que comer](#comidas-keto) para una buena dieta Keto (cetogénica). Siguiendo estas 3 guías ya podemos cambiar nuestro menú para empezar a usar grasa como nuestra fuente principal de energía, comer de una forma mas nutritiva y saludable, y sentirnos mejor que nunca.
+
+## Fuentes
 
 [^1]: [ Leptin and Leptin Resistance: Everything You Need to Know](https://www.healthline.com/nutrition/leptin-101)
 [^2]: [ Raw Sugar vs. Refined Sugar](http://diabeticliving.today/blog/raw-sugar-vs-refined-sugar/)
 [^3]: [Esto es lo que usted se come al tomar un jugo industrializado](https://www.eltiempo.com/salud/cuanta-azucar-tienen-los-jugos-de-caja-262832)
 [^4]: [WHY FLOUR AFFECTS YOU JUST LIKE SUGAR](https://beaconprogram.com/why-flour-affects-you-just-like-sugar/)
 [^5]: [Fructose, Fatty Liver, And Insulin Resistance](https://www.fattyliverfoundation.org/tags/fructose#:~:text=Fructose%20overconsumption%20directly%20produces%20fatty,to%20'overcome'%20this%20resistance.)
+[^6]: [WHO plan to eliminate industrially-produced trans-fatty acids from global food supply](https://www.who.int/news-room/detail/14-05-2018-who-plan-to-eliminate-industrially-produced-trans-fatty-acids-from-global-food-supply)
+[^7]: [The importance of the ratio of omega-6/omega-3 essential fatty acids](https://pubmed.ncbi.nlm.nih.gov/12442909/#:~:text=Abstract,%2F1%2D16.7%2F1.)
+[^8]: [6 Reasons Why Eggs Are the Healthiest Food on the Planet](https://www.healthline.com/nutrition/6-reasons-why-eggs-are-the-healthiest-food-on-the-planet)
+[^9]: [Dietary Cholesterol and the Lack of Evidence in Cardiovascular Disease](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6024687/)
